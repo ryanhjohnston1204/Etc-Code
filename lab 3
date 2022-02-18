@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <ctype.h>
+using namespace std;
+
+int main() {
+	using namespace std;
+	string userString;
+	cout << "Enter a string" << endl;
+	getline(cin, userString);
+	int counter = 0;
+	
+	char list[] = { ' ', ',', '.', '!', '\n'};
+	for (int i = 0; i < userString.size(); i++) {
+		if (isalpha(userString.at(i))) {
+			counter++;
+		}
+		string::iterator end_pos = remove(userString.begin(), userString.end(), list[i++]);
+
+		userString.erase(end_pos, userString.end());
+	}
+	cout << userString.length() << endl;
+
+	/*
+	string::iterator end_pos0 = remove(str.begin(), str.end(), ' ');
+	str.erase(end_pos0, str.end());
+	string::iterator end_pos1 = remove(str.begin(), str.end(), '.');
+	str.erase(end_pos1, str.end());
+	string::iterator end_pos2 = remove(str.begin(), str.end(), ',');
+	str.erase(end_pos2, str.end());
+	string::iterator end_pos3 = remove(str.begin(), str.end(), '!');
+	str.erase(end_pos3, str.end());
+	*/
+
+
+	//cout << str.length() << endl;
+
+	return 0;
+}
