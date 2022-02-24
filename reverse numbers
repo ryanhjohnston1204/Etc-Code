@@ -1,0 +1,22 @@
+#include <iostream>
+
+int reverseNumber(int number, int& reverse_number){
+    int remainder;
+    while(number != 0){
+        remainder = number % 10;
+        reverse_number = reverse_number * 10 + remainder;
+        number = number / 10; // shortcut to n = n / 10;
+    }
+    return reverse_number;
+}
+
+int main(){
+    int num;
+    int reverse;
+    std::cout << "Enter a number" << '\n';
+    std::cin >> num;
+    reverseNumber(num, reverse);
+    std::cout << reverse << '\n';
+    
+    return 0;
+}
