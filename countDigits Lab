@@ -1,0 +1,23 @@
+#include <iostream>
+#include <cmath>
+
+//returns how many three digit natural numbers are divisible 
+//either 4 or 5 but not both. 
+int numOfDigits(int a, int b, int& countDigits){
+    unsigned int numDigits_a = 900 / a;
+    unsigned int numDigits_b = 900 / b;
+    
+    for(unsigned int i = 0; i <= 900; ++i){
+        if(((i % 4 == 0) || (i % 5 == 0)) && !((i % 4 == 0) && (i % 5 == 0))){
+            ++countDigits;
+        }
+    }
+    return countDigits;
+}
+
+int main(){
+    int count;
+    numOfDigits(4, 5, count);
+    std::cout << count;
+    return 0;
+}
